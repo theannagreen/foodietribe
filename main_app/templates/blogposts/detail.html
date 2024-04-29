@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Blog Post Details</h1>
+
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">{{ blogpost.name }}</span>
+    <p>Category: {{ blogpost.category }}</p>
+    <p>Context: {{ blogpost.description }}</p>
+    {% if blogpost.cookingtime > 0 %}
+      <p>Age: {{ blogpost.cookingtime }}</p>
+    {% else %}
+      <p>Cooking Time: 0</p>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}
