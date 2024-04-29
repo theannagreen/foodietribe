@@ -1,10 +1,24 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Blogpost
 
 blogposts = [
   {'name': 'Lolo', 'category': 'vegan', 'description': 'crispy tofu is life changing'},
 ]
 # Create your views here.
+class BlogpostUpdate(UpdateView):
+    model = Blogpost
+    fields = ['title', 'category', 'context']
+
+class BlogpostDelete(DeleteView):
+    model = Blogpost
+    sucess_url = '/blogposts'
+    
+class BlogpostCreate(CreateView):
+    model = Blogpost
+    fields = '__all__'
+    success_url = '/blogposts/{id}'
+
 def home(request): 
     return render(request, 'home.html')
 
