@@ -4,7 +4,9 @@
 {% if object %}
     <h1>Edit <span class="teal-text">{{object.name}}</span></h1>
 {% else %}
+
   <h1>Add New Blog Post</h1>
+  {% endif %}
   <form action="" method="POST">
     {% csrf_token %}
     <table>
@@ -12,5 +14,4 @@
     </table>
     <input type="submit" value="Submit!" class="btn">
   </form>
-  {% endif %}
 {% endblock %}

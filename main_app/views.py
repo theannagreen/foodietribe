@@ -9,11 +9,12 @@ blogposts = [
 class BlogpostUpdate(UpdateView):
     model = Blogpost
     fields = ['title', 'category', 'context']
+    success_url = '/blogposts/{id}'
 
 class BlogpostDelete(DeleteView):
     model = Blogpost
-    sucess_url = '/blogposts'
-    
+    success_url = '/blogposts'
+
 class BlogpostCreate(CreateView):
     model = Blogpost
     fields = '__all__'
