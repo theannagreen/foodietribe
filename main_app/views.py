@@ -1,11 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Blogpost
+from .models import Blogpost, Comment
+from .forms import CommentForm
 
-blogposts = [
-  {'name': 'Lolo', 'category': 'vegan', 'description': 'crispy tofu is life changing'},
-]
 # Create your views here.
+
 class BlogpostUpdate(UpdateView):
     model = Blogpost
     fields = ['title', 'category', 'context']
@@ -33,5 +32,14 @@ def blogposts_index(request):
 
 # This shows the view for displaying the details of a specific blog post 
 def blogposts_detail(request, blogpost_id):
-   blogpost = Blogpost.objects.get(id=blogpost_id)
-   return render(request, 'blogposts/detail.html', { 'blogpost': blogpost})
+   blogpost = get_object_or_404(Blogpost, id=blogpost_id)
+   if request.method == 'POST':
+       form = CommentForm(request.POST)
+       if form.is_valid():
+           comment = form.save(commit=False)
+           comment.blogpost = blogpost
+           comment.save()
+           return redirect('blogposts_detail', blogpost_id=blogpost_id)
+   else: 
+       form = CommentForm()
+   return render(request, 'blogposts/detail.html', { 'blogpost': blogpost, 'form': form})

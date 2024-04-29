@@ -19,5 +19,23 @@
     <a href="{% url 'delete' blogpost.id %}">Delete</a>
   </div>
 </div>
+<!--comments section-->
+<h2>Comments</h2>
+{% if blogposts.comment_set.all %}
+<ul>
+    {% for comment in blogpost.comment_set.all %}
+    <li>{{ comment.text }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No comments yet!</p>
+{% endif %}
+
+<!--comment form -->
+<h2>Add a Comment</h2>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
 
 {% endblock %}

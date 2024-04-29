@@ -12,8 +12,18 @@ def __str__(self):
     return f'Comment on {self.blogpost.title} at {self.created_at}'
     
 class Blogpost(models.Model):
+    CATEGORY_CHOICES = [
+        ('vegan', 'Vegan'),
+        ('vegetarian', 'Vegetarian'),
+        ('pescatarian', 'Pescatarian'),
+        ('halal', 'Halal'),
+        ('kosher', 'Kosher'),
+        ('sugarfree', 'Sugar Free'),
+        ('glutenfree', 'Gluten Free'),
+        ('dairyfree', 'Dairy Free'),
+    ]
     title = models.CharField(max_length=100)
-    category = models.CharField(max_length=50)
+    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
     context = models.CharField(max_length=500)
 
 def __str__(self):
