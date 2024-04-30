@@ -21,18 +21,19 @@
 </div>
 <!--comments section-->
 <h2>Comments</h2>
-{% if blogposts.comment_set.all %}
+{% if comments %}
 <ul>
-    {% for comment in blogpost.comment_set.all %}
+    {% for comment in comments %}
     <li>{{ comment.text }}</li>
     {% endfor %}
-    </ul>
+</ul>
 {% else %}
     <p>No comments yet!</p>
 {% endif %}
 
 <!--comment form -->
 <h2>Add a Comment</h2>
+<form method="post" action="{% url 'new_comment' blogpost_id=blogpost.id %}">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Submit</button>

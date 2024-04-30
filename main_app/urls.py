@@ -10,4 +10,6 @@ urlpatterns = [
     path('blogposts/create/', views.BlogpostCreate.as_view(), name='create'),
     path('blogposts/update/<int:pk>', views.BlogpostUpdate.as_view(), name='update'),
     path('blogposts/delete/<int:pk>', views.BlogpostDelete.as_view(), name='delete'),
+    path('blogposts/<int:blogpost_id>/new_comment/', views.comment, name='new_comment'),
 ]
+ 

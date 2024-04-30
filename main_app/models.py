@@ -10,6 +10,9 @@ class Comment(models.Model):
 
 def __str__(self):
     return f'Comment on {self.blogpost.title} at {self.created_at}'
+
+def get_absolute_url(self):
+    return reverse('detail', kwargs={'blogpost_id': self.blogpost_id})
     
 class Blogpost(models.Model):
     CATEGORY_CHOICES = [

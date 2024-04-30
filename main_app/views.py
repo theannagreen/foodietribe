@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Blogpost, Comment
 from .forms import CommentForm
+from django.urls import reverse
 
 # Create your views here.
 
@@ -32,14 +33,33 @@ def blogposts_index(request):
 
 # This shows the view for displaying the details of a specific blog post 
 def blogposts_detail(request, blogpost_id):
-   blogpost = get_object_or_404(Blogpost, id=blogpost_id)
-   if request.method == 'POST':
-       form = CommentForm(request.POST)
-       if form.is_valid():
-           comment = form.save(commit=False)
-           comment.blogpost = blogpost
-           comment.save()
-           return redirect('blogposts_detail', blogpost_id=blogpost_id)
-   else: 
-       form = CommentForm()
-   return render(request, 'blogposts/detail.html', { 'blogpost': blogpost, 'form': form})
+    blogpost = get_object_or_404(Blogpost, id=blogpost_id)
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.blogpost = blogpost
+            comment.save()
+            return redirect('comment', pk=blogpost_id)  
+    else: 
+        form = CommentForm()
+
+    # Retrieve only comments associated with the current blog post
+    comments = Comment.objects.filter(blogpost=blogpost)
+
+    return render(request, 'blogposts/detail.html', { 'blogpost': blogpost, 'form': form, 'comments': comments})
+
+
+# This is the view to handle comment submissions
+def comment(request, blogpost_id):
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            new_comment = form.save(commit=False)
+            new_comment.blogpost_id = blogpost_id
+            new_comment.save()
+            # Here, we want to redirect back to the same blogpost detail page after adding a comment
+            return redirect('detail', blogpost_id=blogpost_id)  # This line should match the name in urls.py
+    else: 
+        form = CommentForm()
+    return render(request, 'blogposts/detail.html', {'form': form})

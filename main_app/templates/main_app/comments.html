@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Comments</h1>
+
+{% for comments in blogpost_comments %}
+  <a href="{% url 'comments_details' comment.id %}">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ comment.title }}</span>
+            <p>Comment: {{ comment.conext }}</p>
+        </div>
+    </div>
+  </a>
+{% endfor %}
+
+{% endblock %}
