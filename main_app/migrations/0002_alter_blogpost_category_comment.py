@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterField(
             model_name='blogpost',
-            name='category',
+            name='',
             field=models.CharField(choices=[('vegan', 'Vegan'), ('vegetarian', 'Vegetarian'), ('pescatarian', 'Pescatarian'), ('halal', 'Halal'), ('kosher', 'Kosher'), ('sugarfree', 'Sugar Free'), ('glutenfree', 'Gluten Free'), ('dairyfree', 'Dairy Free')], max_length=50),
         ),
         migrations.CreateModel(

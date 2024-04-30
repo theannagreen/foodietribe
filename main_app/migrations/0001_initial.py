@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=100)),
-                ('category', models.CharField(max_length=50)),
+                ('', models.CharField(max_length=50)),
                 ('context', models.CharField(max_length=500)),
             ],
         ),

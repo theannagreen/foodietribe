@@ -10,11 +10,11 @@
       <span class="card-title">{{ blogpost.title }}</span>
       <p>Category: {{ blogpost.category }}</p>
       <p>Context: {{ blogpost.context }}</p>
-      <!-- {% if blogpost.cookingtime > 0 %}
-        <p>Age: {{ blogpost.cookingtime }}</p>
+      {% if blogpost.cookingtime > 0 %}
+        <p>Cooking Time: {{ blogpost.cookingtime }}</p>
       {% else %}
         <p>Cooking Time: 0</p>
-      {% endif %} -->
+      {% endif %}
     </div>
   </div>
 {% endfor %}

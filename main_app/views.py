@@ -1,11 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Blogpost, Comment
-from .forms import CommentForm
+from .forms import CommentForm, BlogpostForm
 from django.urls import reverse
+# from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
-
 class BlogpostUpdate(UpdateView):
     model = Blogpost
     fields = ['title', 'category', 'context']
@@ -17,8 +18,8 @@ class BlogpostDelete(DeleteView):
 
 class BlogpostCreate(CreateView):
     model = Blogpost
-    fields = '__all__'
-    success_url = '/blogposts/{id}'
+    fields = ['title', 'category', 'context']
+    success_url = '/blogposts/'
 
 def home(request): 
     return render(request, 'home.html')
