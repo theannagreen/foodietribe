@@ -5,7 +5,7 @@ from .models import Blogpost, Comment
 class BlogpostForm(forms.ModelForm):
     class Meta:
         model = Blogpost
-        fields = ['title', 'category', 'context']
+        fields = ['title', 'category', 'context', 'cooking_time']
         widgets = {
             'category': forms.Select(choices=Blogpost.CATEGORY_CHOICES),
         }

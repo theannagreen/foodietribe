@@ -27,7 +27,12 @@
         <label for="{{ form.context.id_for_label }}">Context:</label>
         {{ form.context }}
     </div>
+    <div class="form-group">
+        <label for="{{ form.cooking_time.id_for_label }}">Cooking Time (minutes):</label>
+        <input type="number" name="{{ form.cooking_time.html_name }}" id="{{ form.cooking_time.id_for_label }}" class="form-control" placeholder="Optional - Cooking time if applicable">
+    </div>
     <button type="submit" class="btn btn-primary">Submit</button>
+    
 </form>
 
 {% endblock %}
