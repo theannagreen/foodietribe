@@ -22,6 +22,7 @@ class Blogpost(models.Model):
     context = models.CharField(max_length=500)
     cooking_time = models.IntegerField(default=0)
 
+
     def __str__(self):
         return self.title
     
