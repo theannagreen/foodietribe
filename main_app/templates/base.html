@@ -9,10 +9,13 @@
   <title>Foodie Tribe</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 </head>
 <body>
   <header class="navbar-fixed">
-    <nav>
+    <nav style="background-color: #556B2F">
       <div class="nav-wrapper">
         <ul>
           <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Foodie Tribe</a></li>
@@ -31,6 +34,7 @@
     </nav>
   </header>
   <main class="container">
+    
     {% block content %}
     {% endblock %}
   </main>
