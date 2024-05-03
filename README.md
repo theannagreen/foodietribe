@@ -2,7 +2,7 @@
 Foodie Tribe Blog is a web application designed to share and explore cooking tips, food-related content and recipes. This application allows users to create blog posts about their favorite dishes and comment on blog post!
 
 ## Screenshots of Application 
-<img src="/images_README/home.jpg">
+<img src="images_README/home.jpg">
 
 ## Technologies Used 
 - Django
