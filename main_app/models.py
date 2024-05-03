@@ -17,7 +17,8 @@ class Blogpost(models.Model):
     category = models.CharField(
         max_length=15, 
         choices=CATEGORY_CHOICES,
-        default=CATEGORY_CHOICES[0][0] 
+        blank=True,
+        null=True
     )
     context = models.CharField(max_length=500)
     cooking_time = models.IntegerField(default=0)

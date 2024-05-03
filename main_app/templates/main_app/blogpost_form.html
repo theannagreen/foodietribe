@@ -2,21 +2,21 @@
 
 {% block content %}
 {% if object %}
-<h1>Edit <span class="teal-text">{{object.name}}</span></h1>
+<h1>Update Blog Post <span class="teal-text">{{object.name}}</span></h1>
 {% else %}
-<h1 style="color: white;">Add New Blog Post</h1>
+<h1 style="color: black;">Add New Blog Post</h1>
 {% endif %}
-<form method="post" action="{% url 'create' %}">
+<form method="post">
 
     {% csrf_token %}
     <div class="form-group">
-        <label for="{{ form.title.id_for_label }}">Title:</label>
+        <label for="{{ form.title.id_for_label }}"style="color: black;">Blog Title:</label>
         {{ form.title }}
     </div>
     <div class="form-group">
-        <label for="{{ form.category.id_for_label }}">Category:</label>
+        <label for="{{ form.category.id_for_label }}"style="color: black;">Category:</label>
         {{ form.category }}
-        <!-- Add temporary inline style to force display -->
+
     <select style="display: block;">
         {% for category_key, category_value in form.category.field.choices %}
             <option value="{{ category_key }}">{{ category_value }}</option>
@@ -24,12 +24,12 @@
     </select>
 </div>
     <div class="form-group">
-        <label for="{{ form.context.id_for_label }}">Context:</label>
+        <label for="{{ form.context.id_for_label }}"style="color: black;">Context:</label>
         {{ form.context }}
     </div>
     <div class="form-group">
-        <label for="{{ form.cooking_time.id_for_label }}">Cooking Time (minutes):</label>
-        <input type="number" name="{{ form.cooking_time.html_name }}" id="{{ form.cooking_time.id_for_label }}" class="form-control" placeholder="Optional - Cooking time if applicable">
+        <label for="{{ form.cooking_time.id_for_label }}"style="color: #333;">Cooking Time (minutes):</label>
+        <input type="number" name="{{ form.cooking_time.html_name }}" id="{{ form.cooking_time.id_for_label }}" class="form-control"  placeholder="Optional - Cooking time if applicable">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
     
