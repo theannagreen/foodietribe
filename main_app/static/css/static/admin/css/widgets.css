@@ -247,10 +247,10 @@ a.active.selector-clearall:focus, a.active.selector-clearall:hover {
     cursor: pointer;
 }
 
-.stacked .selector-remove {
+/* .stacked .selector-remove {
     background: url(../img/selector-icons.svg) 0 0 no-repeat;
     cursor: default;
-}
+} */
 
 .stacked .active.selector-remove {
     background-position: 0 0px;
