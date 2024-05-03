@@ -5,6 +5,7 @@ from .forms import CommentForm, BlogpostForm
 from django.urls import reverse
 
 
+
 # all views below
 class BlogpostUpdate(UpdateView):
     model = Blogpost
