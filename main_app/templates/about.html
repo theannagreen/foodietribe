@@ -1,26 +1,33 @@
-
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
+
 
 <h1>About the Foodie Tribe Mission</h1>
- <hr>
- <p>Welcome to Foodie Tribe, where passion for food meets everyday life!</p>
+<hr>
+<p>Welcome to Foodie Tribe, where passion for food meets everyday life!</p>
 
- <h2>Our Mission</h2>
- <p>At Foodie Tribe, we believe in the power of delicious, wholesome food to bring joy and nourishment to our lives. 
- Our mission is simple: to share fresh, flavorful, and (mostly) healthy recipes that we love to make and eat in our real,
-  everyday lives. But that's not all! We also encourage you to share your cooking stories, experiences, 
-  and everything related to the culinary world.</p>
- 
- <h2>What Sets Us Apart</h2>
- <p>We're not just another food blog and we want to keep it that way! We're real people, cooking real food, and sharing how we feel in the kitchen. 
- If you wouldn’t eat it in real life, do not post it to your blog. Our goal is to inspire people through food and experiences! Whether you’re cooking 
- for yourself, your family, your roommates, or your friends, share it with us!.</p>
- 
- <h2>Join the Tribe</h2>
- <p>We want you to be as excited about cooking as we are. We want you eagerly awaiting 5pm when you can go home from work and start cooking. 
- Join our tribe and let’s embark on a culinary journey together! Sign up to be a member today!</p>
+<h2>Our Mission</h2>
+<p>At Foodie Tribe, we believe in the power of delicious, wholesome food to bring joy and nourishment to our lives.
+    Our mission is simple: to share fresh, flavorful, and (mostly) healthy recipes that we love to make and eat in our
+    real,
+    everyday lives. But that's not all! We also encourage you to share your cooking stories, experiences,
+    and everything related to the culinary world.</p>
 
- <footer>All Rights Reserved, &copy; 2024 Foodie Tribe/footer>
+<img class="card-img" src="{% static 'css/static/img/about.png' %}" style="width: 100%; max-width: 600px; display: block; margin: auto;">
 
-{% endblock %}
+<h2>What Sets Us Apart</h2>
+<p>We're not just another food blog and we want to keep it that way! We're real people, cooking real food, and sharing
+    how we feel in the kitchen.
+    If you wouldn’t eat it in real life, do not post it to your blog. Our goal is to inspire people through food and
+    experiences! Whether you’re cooking
+    for yourself, your family, your roommates, or your friends, share it with us!.</p>
+
+<h2>Join the Tribe</h2>
+<p>We want you to be as excited about cooking as we are. We want you eagerly awaiting 5pm when you can go home from work
+    and start cooking.
+    Join our tribe and let’s embark on a culinary journey together! Sign up to be a member today!</p>
+
+<footer>All Rights Reserved, &copy; 2024 Foodie Tribe</footer>
+
+    {% endblock %}

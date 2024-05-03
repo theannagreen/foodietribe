@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,35 +13,39 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
-</head>
-<body>
+
+<body
+  style="background-image: url('{% static 'css/static/img/homepage.png' %}'); background-size: cover; background-position: center;">
+  </head>
+
   <header class="navbar-fixed">
-    <nav style="background-color: #556B2F">
+    <nav style="background-color: #556B2F; height: 80px;">
       <div class="nav-wrapper">
         <ul>
-          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Foodie Tribe</a></li>
+          <li><a href="/" class="left brand-logo">
+              <img class="logo-img" src="{% static 'img/logo.png' %}" style="max-width: 200px;">
+              &nbsp;&nbsp;Foodie Tribe</a></li>
         </ul>
         <ul class="right">
           <li><a href="{% url 'about' %}">About</a></li>
           <li><a href="{% url 'index' %}">View All Blog Posts</a></li>
           <li><a href="{% url 'create' %}">Add New Blog Post</a></li>
           {% if user.is_authenticated %}
-            <li><a href="{% url 'logout' %}">Logout</a></li>
-        {% else %}
-            <li><a href="{% url 'login' %}">Login</a></li>
-        {% endif %}
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+          {% else %}
+          <li><a href="{% url 'login' %}">Login</a></li>
+          {% endif %}
         </ul>
       </div>
     </nav>
   </header>
   <main class="container">
-    
     {% block content %}
     {% endblock %}
   </main>
-  <footer class="page-footer">
+  <footer class="page-footer" style="background-color: #556B2F">
     <div class="right">All Rights Reserved, &copy; 2024 Foodie Tribe &nbsp;</div>
   </footer>
 </body>
-</html>
 
+</html>
